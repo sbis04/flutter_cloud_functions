@@ -10,7 +10,7 @@ const msg = {
   text: "This is your first email triggered by Cloud Functions",
 };
 
-exports.sendEmailToUser = functions.https.onRequest((_, __) => {
+exports.sendEmailToUser = functions.https.onCall((_, __) => {
   sgMail
       .send(msg)
       .then((response) => {
@@ -21,4 +21,6 @@ exports.sendEmailToUser = functions.https.onRequest((_, __) => {
         console.error(`Unable to send email. Error: ${error}`);
         throw new functions.https.HttpsError("aborted", "Unable to send email");
       });
+
+  return `Email sent successfully to ${msg.to}`;
 });
