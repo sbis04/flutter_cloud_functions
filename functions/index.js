@@ -10,7 +10,7 @@ const msg = {
   text: "This is your first email triggered by Cloud Functions",
 };
 
-exports.sendEmailToUser = functions.https.onRequest((req, res) => {
+exports.sendEmailToUser = functions.https.onRequest((_, __) => {
   sgMail
       .send(msg)
       .then((response) => {
