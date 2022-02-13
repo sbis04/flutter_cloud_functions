@@ -16,11 +16,19 @@ class _HomePageState extends State<HomePage> {
   Future<void> sendEmail() async {
     setState(() => _isSending = true);
 
-    HttpsCallable callable =
-        FirebaseFunctions.instance.httpsCallable('sendEmailToUser');
+    final callable = functions.httpsCallable('sendEmailToUser');
     final results = await callable();
 
     setState(() => _isSending = false);
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Email sent successfully!',
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
 
     debugPrint(results.data);
   }

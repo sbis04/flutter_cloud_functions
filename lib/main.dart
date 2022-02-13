@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Cloud Functions',
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
