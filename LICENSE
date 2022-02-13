@@ -1,36 +1,4 @@
-# Flutter Cloud Functions
-
-A sample project demonstrating how to run backend tasks in Flutter using [Firebase Cloud Functions](https://firebase.google.com/docs/functions).
-
-![](screenshots/firebase_function.gif)
-
-## Functions
-
-### 1. HTTPS Function
-
-```js
-exports.sendEmailToUserRequest = functions.https.onRequest((_, __) => {
-    // ...
-});
-```
-
-### 2. Callable Function
-
-```js
-exports.sendEmailToUserCall = functions.https.onCall((_, __) => {
-    // ...
-});
-```
-
-### 3. Background Function - Authentication
-
-```js
-exports.sendWelcomeEmail = functions.auth.user().onCreate((user) => {
-    // ...
-});
-```
-
-## License
+MIT License
 
 Copyright (c) 2022 Souvik Biswas
 
